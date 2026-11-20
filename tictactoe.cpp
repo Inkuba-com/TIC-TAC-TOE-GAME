@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cctype>   
+#include <limits>   
 using namespace std;
 
 // Helper function to display the current 3x3 game board
