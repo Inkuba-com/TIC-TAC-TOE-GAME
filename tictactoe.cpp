@@ -16,11 +16,33 @@ void printBoard(const char board[3][3]) {
     cout << endl;
 }
 
+//A helper function to ask the user if they want to play again
+bool askPlayAgain() {
+    char choice;
+    while (true) {
+        cout << "Do you want to play again? (y/n): ";
+        cin >> choice;
+
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        choice = tolower(static_cast<unsigned char>(choice));
+
+        if (choice == 'y') {
+            return true;
+        } 
+        else if (choice == 'n') {
+            return false;
+        } 
+        else {
+            cout << "Invalid input. Please enter 'y' for yes or 'n' for no." << endl;
+        }
+    }
+}
+
+
 int main() {
 
-    
-
-    // Initialize an empty 3x3 board
+    do{
+            // Initialize an empty 3x3 board
     char board[3][3] = {
         {' ', ' ', ' '}, 
         {' ', ' ', ' '}, 
@@ -110,6 +132,9 @@ int main() {
     }
 
     
+
+    } while(askPlayAgain());
+
 
     return 0;
 }
